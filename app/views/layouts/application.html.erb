@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OrderEats</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+    
+    <script src="https://kit.fontawesome.com/81e1251ca7.js" crossorigin="anonymous"></script>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="d-flex flex-column vh-100">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <a class="navbar-brand p-3" href="/"><%= image_tag('logo.PNG', size: "80x80") %></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if customer_signed_in? %>
+                <%= render 'layouts/header_customer' %>
+              <% elsif admin_signed_in? %>
+                <%= render 'layouts/header_admin' %>
+              <% elsif store_signed_in? %>
+                <%= render 'layouts/header_store' %>
+              <% else %>
+                <%= render 'layouts/header_before' %>
+              <% end %>
+            </ul>
+          </div>
+          <div class="header_search">
+            <%= render 'layouts/search' %>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <% flash.each do |messege_type, messege| %>
+        <div class="flash-message <%= messege_type %> alert alert-danger text-center col-md-4 offset-4"><%= messege %></div>
+      <% end %>
+      <%= yield %>
+    </main>
+    <footer class="footer mt-auto py-3">
+      <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top footer mt-auto py-3 bg-body-tertiary">
+          <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+              <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+            </a>
+            <span class="text-body-secondary">&copy; 2024 OrderEats</span>
+          </div>
+      
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-secondary" href="#"><svg class="bi" width="24" height="24"><i class="fa-brands fa-x-twitter"></i></svg></a></li>
+            <li class="ms-3"><a class="text-secondary" href="#"><svg class="bi" width="24" height="24"><i class="fa-brands fa-square-instagram"></i></svg></a></li>
+            <li class="ms-3"><a class="text-secondary" href="#"><svg class="bi" width="24" height="24"><i class="fa-brands fa-facebook"></i></svg></a></li>
+          </ul>
+        </footer>
+      </div>
+    </footer>
+  </body>
+</html>

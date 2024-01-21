@@ -1,0 +1,18 @@
+<li class="nav-item mr-3">
+  <%= link_to "店舗一覧", stores_path, class: "nav-link text-dark mt-2" %>
+</li>
+<li class="nav-item">
+  <%= link_to "ゲストログイン", customers_guest_sign_in_path, method: :post, class: 'nav-link text-dark mt-2' %>
+</li>
+<li class="nav-item mr-3">
+  <%= link_to new_customer_registration_path, class: "btn btn-header btn-sm rounded-pill p-3" do %>
+    <i class="fa-solid fa-user-plus"></i>
+    <span class='header-btn-text'>新規登録</span>
+  <% end %>
+</li>
+<li class="nav-item">
+  <%= link_to new_customer_session_path, class: "btn btn-header btn-sm rounded-pill p-3" do %>
+    <i class="fa-solid fa-arrow-right-to-bracket"></i>
+    <span class='header-btn-text'>ログイン</span>
+  <% end %>
+</li>
