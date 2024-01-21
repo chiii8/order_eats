@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mb-3">
+      <h4 class="text-center">商品新規登録</h4>
+    </div>
+    <div class="col-md-6 offset-4">
+    <%= form_with model: @item, url: store_store_items_path do |f| %>
+      <div class="field mb-3">
+        <h6>商品画像</h6>
+        <%= f.file_field :image, accept: "image/*" %>
+      </div>
+      <div class="field mb-3">
+        <h6>商品名</h6>
+        <%= f.text_field :name, :placeholder => "商品名", size: 40 %>
+      </div>
+      <div class="field mb-3">
+        <h6>商品説明</h6>
+        <%= f.text_area :introduction, :placeholder => "ここに説明文を記述します", size: "40×60" %>
+      </div>
+      <div class="field mb-3">
+        <h6>税抜価格</h6>
+        ¥ <%= f.number_field :price, :placeholder => "1000", size: 40 %>
+      </div>
+      <div class="field mb-3">
+        <h6>販売ステータス</h6>
+        <%= f.radio_button :is_active, :true %>
+        <%= f.label :is_active, "販売中", class: 'text-black-50 mr-3' %>
+        <%= f.radio_button :is_active, :false %>
+        <%= f.label :is_active, "販売停止中", class: 'text-black-50' %>
+      </div>
+    </div>
+    <div class="col-lg-6 offset-3">
+      <hr class="hr">
+    </div>
+    <div class="col-lg-5 offset-4">
+      <div class="action">
+        <%= f.hidden_field :store_id, value: @store.id %>
+        <%= f.submit "新規登録", class: "btn btn-success btn-block mt-4 col-lg-9" %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

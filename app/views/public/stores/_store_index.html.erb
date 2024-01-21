@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="offset-3 col-lg-6 mb-5 mt-5">
+      <% stores.each do |store| %>
+        <%= link_to store_items_path(store) do %>
+          <%= image_tag store.get_image(500, 200), class: 'rounded store-img' %>
+        <% end %>
+        <div class="border-line">
+          <hr class="hr1">
+        </div>
+        <div class="mb-5">
+          <h4><strong><%= store.name %></strong>
+          <% if customer_signed_in? %>
+            <% if store.favorited_by?(current_customer) %>
+              <%= link_to store_favorite_path(store), method: :delete do %>
+                <i class="fa-solid fa-heart-circle-check"></i>
+              <% end %>
+            <% else %>
+              <%= link_to store_favorite_path(store), method: :post do %>
+                <i class="fa-regular fa-heart"></i>
+              <% end %>
+            <% end %>
+          <% end %></h4>
+          <span class="text-secondary"><%= store.address %></span>
+        </div>
+      <% end %>
+    </div>
+  </div>

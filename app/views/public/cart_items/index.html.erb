@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= link_to stores_path do %>
+      <h6><i class="fa-solid fa-angles-left text-dark"></i></h6>
+      <% end %>
+    </div>
+  </div>
+  <% if @cart_items.empty? %>
+    <!-- カートが空の場合の表示 -->
+    <div class="col mt-5">
+    <%= render 'empty_cart_message' %>
+    </div>
+  <% else %>
+  <% @cart_items.each do |cart_item| %>
+  <div class="row">
+    <div class="col-lg-3 ml-5 mt-5">
+      <%= image_tag cart_item.item.get_image(150, 150) %>
+    </div>
+    <div class="col-lg-2 mt-5">
+      <h5><strong><%= cart_item.item.name %></strong></h5>
+      <p class="text-secondary">商品合計　¥<%= cart_item.subtotal %></p>
+      <% @total = @total + cart_item.subtotal %>
+    </div>
+    <div class="col-lg-3 mt-5">
+      <%= form_with model: cart_item, url: cart_item_path(cart_item.id), method: :patch do |f| %>
+        <%= f.hidden_field :item_id, :value => cart_item.item.id %>
+        <%= f.select :quantity, *[1..10] %>
+        <%= f.submit "変更", class: 'btn btn-outline-success btn-sm ml-4' %>
+        <%= link_to "削除する", cart_item_path(cart_item.id), method: :delete, class: 'btn btn-outline-danger btn-sm' %>
+      <% end %>
+    </div>
+    <div class="col-lg-9 border-item-line"></div>
+  </div>
+  <% end %>
+  <div class="row mb-5">
+    <div class="col-lg-3 cart-continue mt-5">
+      <%= link_to root_path, class: 'btn btn-light rounded-pill border-green pr-5 pl-5 pt-3 pb-3' do %>
+        お買い物を続ける <i class="fa-solid fa-cart-shopping"></i>
+      <% end %>
+    </div>
+    <div class="col-lg-2 offset-3 mt-5 border-item-line">
+      <h4>合計金額</h4>
+    </div>
+    <div class="col-lg-1 mt-5 border-item-line">
+      <h4>¥<%= @total %></h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-5 offset-2">
+      <%= link_to "ご注文手続きへ進む >>>", new_order_path, class: 'btn btn-dark btn-block pr-5 pl-5 pt-2 pb-2 mt-5 mb-5' %>
+    </div>
+  </div>
+  <% end %>
+ </div>

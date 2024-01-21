@@ -1,0 +1,55 @@
+<div class="container mt-2">
+  <div class="row">
+    <div class="col-lg-3">
+      <h3><strong>マイページ</strong></h3>
+      <div class="rounded-circle">
+        <%= image_tag @customer.get_profile_image(150, 150), class: 'mt-5' %>
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <br>
+      <br>
+      <br>
+      <br>
+      <h3 class="mb-5"><strong><%= @customer.full_name %></strong></h3>
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="fa-stack fa-4x">
+            <%= link_to favorites_customer_path(@customer), class: 'text-secondary' do %>
+              <i class="fa-solid fa-circle fa-stack-2x"></i>
+              <i class="fa-solid fa-heart-circle-check fa-stack-1x fa-inverse"></i>
+            <% end %>
+          </div>
+          <h6 class="text-center mt-3"><strong>お気に入り</strong></h6>
+        </div>
+        <div class="col-lg-3">
+          <div class="fa-stack fa-4x">
+            <%= link_to confirmation_path(@customer), class: 'text-secondary' do %>
+              <i class="fa-solid fa-circle fa-stack-2x"></i>
+              <i class="fa-solid fa-user fa-stack-1x fa-inverse"></i>
+            <% end %>
+          </div>
+          <h6 class="text-center mt-3"><strong>個人情報</strong></h6>
+        </div>
+        <div class="col-lg-3">
+          <div class="fa-stack fa-4x">
+            <%= link_to orders_path(@customer), class: 'text-secondary' do %>
+              <i class="fa-solid fa-circle fa-stack-2x"></i>
+              <i class="fa-solid fa-file-lines fa-stack-1x fa-inverse"></i>
+            <% end %>
+          </div>
+          <h6 class="text-center mt-3"><strong>注文一覧</strong></h6>
+        </div>
+        <div class="col-lg-3">
+          <div class="fa-stack fa-4x">
+             <%= link_to "/", class: 'text-secondary' do %>
+              <i class="fa-solid fa-circle fa-stack-2x"></i>
+              <i class="fa-solid fa-medal fa-stack-1x fa-inverse"></i>
+            <% end %>
+          </div>
+          <h6 class="text-center mt-3"><strong>ステータス</strong></h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

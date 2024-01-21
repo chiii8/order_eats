@@ -1,24 +1,31 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# OrderEats
+​
+## サイト概要
+### サイトテーマ
+注文したい料理や店舗を検索したり、モバイルオーダーでテイクアウトができる注文予約サイトです。
+​
+### テーマを選んだ理由
+今現在、居酒屋で働いていますが、お店があまり大きくないので、テイクアウトをするには店舗に足を運び、お店でメニューを見てからしか注文ができません。電話でも注文したいとお電話してくださるお客様がいますが、利用してくださるお客様は少ない印象です。なので、もっと様々なお客様に利用してもらうために、このテーマを選びました。管理側もサイト上で一括管理できるのでその点でも便利になるのではないかと思っています。
+​
+### ターゲットユーザ
+- テイクアウトをして料理を食べたい人
+- 待ち時間を少なくして利用したい人
+- 車椅子などでなにかしらの理由でお店が利用できない人
+​
+### 主な利用シーン
+- 時間を短縮してスムーズに注文したい時
+- お店の料理を持ち帰り、自宅などでも食べたい時
+- お店の料理を他者にあげたい時
+- お店で食べるには難しい時
+​
+## 設計書
+後ほど作成予定
+​
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
+​
+## 使用素材

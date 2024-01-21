@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2 text-center">
+      <h3 class="mb-4">ご注文内容</h3>
+    </div>
+  </div>
+  <% if @orders.empty? %>
+    <div class="col mt-5">
+      <%= render 'empty_order_message' %>
+    </div>
+  <% end %>
+  <% @orders.each do |order| %>
+  <div class="row">
+    <div class="col-lg-5 mt-3">
+      <p><%= order.created_at.strftime('%Y/%m/%d') %>
+      <span class="text-secondary ml-3" style="font-size:13px;"><%= order.payment_method_i18n %>で支払済み</span>
+      <span class="text-secondary ml-3" style="font-size:13px;">手数料¥<%= order.fee %></span>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3 offset-1">
+      <% order.order_details.each do |order_detail| %>
+        <span class="border1" style="border: solid thin #d3d3d3"><%= order_detail.quantity %></span>
+        <%= order_detail.item.name %><br>
+      <% end %>
+    </div>
+    <div class="col-lg-2">
+      <h5>¥<%= order.payment_amount %></h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="border-order-line"></div>
+    </div>
+  </div>
+  <% end %>
+</div>

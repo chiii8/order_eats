@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2 mb-3">
+      <h4><strong><%= @store.name %></strong></h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4">
+      <%= image_tag @store.get_image(300, 300) %>
+    </div>
+    <div class="col-lg-8">
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <td>住所</td>
+            <td><strong><%= @store.address %></strong></td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><strong><%= @store.email %></strong></td>
+          </tr>
+          <tr>
+            <td>電話番号</td>
+            <td><strong><%= @store.telephone_number %></strong></td>
+            <td>
+              <%= link_to "編集する", edit_store_store_path(@store), class: 'btn btn-success btn-block pr-5 pl-5' %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

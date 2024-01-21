@@ -1,0 +1,69 @@
+<% if @customer.email == 'guest@email.com' %>
+  <div class="col mt-5">
+    <%= render 'empty_customer' %>
+  </div>
+<% else %>
+<div class="container">
+  <div class="row">
+    <div class="col text-center mt-4">
+      <h4>会員情報編集</h4>
+    </div>
+  </div>
+  <%= form_with model: @customer, method: :patch do |f| %>
+  <div class="row">
+    <div class="col-lg-6 offset-4">
+      <div class="field mb-3">
+        <h5 class="mt-5">名前</h5>
+        <%= f.text_field :last_name, :placeholder => "姓" %>
+        <%= f.text_field :first_name, :placeholder => "名" %>
+      </div>
+      <div class="field mb-3">
+        <h5>フリガナ</h5>
+        <%= f.text_field :last_name_kana, :placeholder => "セイ" %>
+        <%= f.text_field :first_name_kana, :placeholder => "メイ" %>
+      </div>
+      <div class="field mb-3">
+        <h5>メールアドレス</h5>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "aaa@gmail.com", size: 40 %>
+      </div>
+      <div class="field mb-3">
+        <h5>電話番号</h5>
+        <%= f.text_field :telephone_number, size: 30, :placeholder => "00000000000" %>
+      </div>
+      <div class="field mb-3">
+        <h5>性別</h5>
+        <%= f.radio_button :gender, Customer.genders.key(0) %>
+          <%= f.label "男性", class: 'mr-3' %>
+        <%= f.radio_button :gender, Customer.genders.key(1) %>
+          <%= f.label "女性", class: 'mr-3' %>
+        <%= f.radio_button :gender, Customer.genders.key(2) %>
+          <%= f.label "無回答" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 offset-3">
+      <div class="border-line">
+        <hr class="hr1">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4 offset-4 mt-3">
+      <div class="action">
+        <%= f.submit "編集する", class: 'btn btn-success btn-block' %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <div class="row">
+    <div class="col-lg-6 offset-3 mt-3 mb-5">
+      <div class="link mt-4 text-center">
+        <span style="font-size:15px;">
+          アカウントを削除する方は、<%= link_to "こちら", withdraw_confirm_path, class: 'text-danger' %>から
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

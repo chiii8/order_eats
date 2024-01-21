@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2">
+      <%= link_to store_items_path(@store), class: 'text-dark' do %>
+        <i class="fa-solid fa-angles-left"></i>戻る
+      <% end %>
+    </div>
+  </div>
+  <div class="row offset-3">
+    <div class="col-lg-4">
+      <%= image_tag @item.get_image(300,300) %>
+    </div>
+    <div class="col-lg-6 ml-5">
+      <h4><strong><%= @item.name %></strong></h4>
+      <p><%= @item.introduction %></p>
+      <h4>
+        ¥ <%= @item.with_tax_price %>
+        <span style="font-size:10px;">(税込)</span>
+      </h4>
+      <div class="form-group mt-5">
+      <%= form_with model: @cart_item, url: cart_items_path do |f| %>
+        <%= f.hidden_field :item_id, :value => @item.id %>
+        <%= f.select :quantity, *[1..10] %>
+        <%= f.submit "カートに入れる", class: 'btn btn-success ml-5' %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

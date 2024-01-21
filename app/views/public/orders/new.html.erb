@@ -1,0 +1,33 @@
+<div class="container">
+  <%= form_with model: @order, url: confirm_path do |f| %>
+  <div class="row">
+    <div class="col-lg-2">
+      <h3 class="mt-5"><strong>支払方法</strong></h3>
+    </div>
+    <p class="text-secondary mt-5">※選択してください。</p>
+  </div>
+  <div class="row">
+    <div class="col-lg-3 ml-5 mt-5">
+      <div class="form-group-card">
+        <h5>
+          <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+          <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %>
+        </h5>
+      </div>
+    </div>
+    <div class="col-lg-3 mt-5">
+      <div class="form-group-cash">
+        <h5>
+          <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+          <%= f.label :payment_method_cash, Order.payment_methods_i18n[:cash] %>
+        </h5>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3 offset-1 mt-5">
+      <%= f.submit "確認画面に進む>>>", class: 'btn btn-primary btn-block' %>
+    </div>
+  </div>
+  <% end %>
+</div>

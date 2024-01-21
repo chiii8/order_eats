@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 mb-5">
+      <h6 class="text-center"><strong>商品詳細</strong> <%= @store.name %></h6>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-lg-4 offset-2">
+      <%= image_tag @item.get_image(300, 300) %>
+    </div>
+    <div class="col-lg-6">
+      <h4><strong><%= @item.name %></strong></h4>
+      <p><%= @item.introduction %></p>
+      <h6>
+         ¥ <%= @item.with_tax_price %>
+        <span style="font-size:10px;">(税込)</span>
+      </h6>
+      <h6>
+        <% if @item.is_active %>
+          <span class="text-success"><strong>販売中</strong></span>
+        <% else %>
+          <span class="text-danger"><strong>販売停止中</strong></span>
+        <% end %>
+      </h6>
+      <span><%= link_to "編集する", edit_store_store_item_path(@item.id), class: 'btn btn-success pr-5 pl-5 mt-4' %></span>
+    </div>
+  </div>
+</div>

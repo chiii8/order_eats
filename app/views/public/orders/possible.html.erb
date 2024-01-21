@@ -1,0 +1,21 @@
+<div class="container">
+  <div clasas="row">
+    <div class="col-lg-10 offset-1 text-center">
+      <h4><storng>
+        ご注文ありがとうございました。<br>
+        注文番号はこちらです。モニターに表示、または呼ばれましたら、受付にてお越しください。
+      </storng>
+      </h4>
+      <br>
+      <br>
+      <br>
+      <h1 class="text-center"><strong><%= @order.number %></strong></h1>
+      <br>
+      <br>
+      <br>
+      <br>
+      <p>商品を受け取りましたら、受取完了ボタンを押してください。</p>
+      <%= link_to "商品を受け取りました", orders_thanks_path, class: 'btn btn-success' %>
+    </div>
+  </div>
+</div>

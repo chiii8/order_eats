@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-center mt-5">
+      <h4 class="mb-5"><strong>
+        <%= @store.name %> 店舗詳細
+      </strong></h4>
+    </div>
+    <div class="col-lg-4">
+      <div class="image">
+        <%= image_tag @store.get_image(300, 300) %>
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <td>店舗ID</td>
+            <td><%= @store.id %></td>
+          </tr>
+          <tr>
+            <td>店舗名</td>
+            <td><%= @store.name %></td>
+          </tr>
+          <tr>
+            <td>電話番号</td>
+            <td><%= @store.telephone_number %></td>
+          </tr>
+          <tr>
+            <td>住所</td>
+            <td><%= @store.address %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

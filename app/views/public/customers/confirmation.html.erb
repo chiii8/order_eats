@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2">
+      <%= link_to "<<", mypage_path(current_customer), class: 'text-dark' %>
+    </div>
+    <div class="col-lg-8 text-center mt-4">
+      <h4>アカウント情報</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-2 offset-4 mt-5">
+      <h5>氏名</h5>
+    </div>
+    <div class="col-lg-3 mt-5">
+      <h5><%= @customer.full_name %></h5>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-lg-2 offset-4">
+      <h5>フリガナ</h5>
+    </div>
+    <div class="col-lg-3">
+      <h5><%= @customer.full_name_kana %></h5>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-lg-2 offset-4">
+      <h5>メールアドレス</h5>
+    </div>
+    <div class="col-lg-3">
+      <h5><%= @customer.email %></h5>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-lg-2 offset-4">
+      <h5>電話番号</h5>
+    </div>
+    <div class="col-lg-3">
+      <h5><%= @customer.telephone_number %></h5>
+    </div>
+  </div>
+  <div class="row mt-3 mb-4">
+    <div class="col-lg-2 offset-4">
+      <h5>性別</h5>
+    </div>
+    <div class="col-lg-3">
+      <h5><%= @customer.gender_i18n %></h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 offset-3">
+      <hr class="hr1">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4 offset-4 mt-5">
+      <%= link_to "個人情報編集", infomation_path(@customer), class: 'btn btn-success btn-block' %>
+    </div>
+  </div>
+</div>
