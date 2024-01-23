@@ -1,6 +1,6 @@
 <div class="container">
   <div class=="row">
-    <div class="col-md-4 offset-4">
+    <div class="col-md-4 offset-4 customer-login">
       <h4 class="text-center">Order Eats</h4>
         <%= form_with model: @customer, url: customer_session_path do |f| %>
         <div class="field">
@@ -11,14 +11,11 @@
           <h5>パスワード</h5>
           <%= f.password_field :password, autocomplete: "current-password", :placeholder => "パスワード(6文字以上)", size: 40, class: "mb-5" %>
         </div>
-        <div class="action offset-3">
-          <%= f.submit "ログイン", class: "btn btn-primary pr-5 pl-5 mb-5 btn-sm" %>
+        <div class="action">
+          <%= f.submit "ログイン", class: "btn btn-primary btn-block" %>
         </div>
         <% end %>
-        <div class="border-line">
-          <hr class="hr1">
-        </div>
-        <div class="link mt-4">
+        <div class="link mt-4 ml-4">
           <span style="font-size:14px;">
             アカウントをお持ちでない場合、登録は<%= link_to "こちら", new_customer_registration_path %>から
           </span>
@@ -26,5 +23,3 @@
     </div>
   </div>
 </div>
-
-<%= render "public/shared/links" %>

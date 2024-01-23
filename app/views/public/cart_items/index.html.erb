@@ -34,8 +34,8 @@
   </div>
   <% end %>
   <div class="row mb-5">
-    <div class="col-lg-3 cart-continue mt-5">
-      <%= link_to root_path, class: 'btn btn-light rounded-pill border-green pr-5 pl-5 pt-3 pb-3' do %>
+    <div class="col-lg-3 empty-continue mt-5">
+      <%= link_to root_path, class: 'btn btn-outline-dark rounded-pill btn-block pt-3 pb-3' do %>
         お買い物を続ける <i class="fa-solid fa-cart-shopping"></i>
       <% end %>
     </div>
@@ -48,7 +48,7 @@
   </div>
   <div class="row">
     <div class="col-lg-5 offset-2">
-      <%= link_to "ご注文手続きへ進む >>>", new_order_path, class: 'btn btn-dark btn-block pr-5 pl-5 pt-2 pb-2 mt-5 mb-5' %>
+      <%= link_to "ご注文手続きへ進む >>>", new_order_path, class: 'btn btn-success btn-block mt-5 mb-5' %>
     </div>
   </div>
   <% end %>

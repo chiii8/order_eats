@@ -13,8 +13,9 @@
  *= require_tree .
  *= require_self
  */
-body {
+ body {
    font-family: monospace;
+   background-color: #e8d3d1;
  }
  
  .btn-header {
@@ -28,23 +29,16 @@ body {
  }
  
  .bb1 tr {
-  border-bottom: 2px solid #d3d3d3;
- }
- 
- .item-img {
-  width: 100%;
-  height: 120px;
-  background-size: cover;
-  border: 5px solid #cccccc;
+  border-bottom: 2px solid #888084;
  }
  
  .store-img {
   width: 100%;
-  height: auto;
+  height: 200px;
  }
  
  .empty-infomaion {
-  background-color: #fff;
+  background-color: #fef4f4;
   border: 1px solid #000;
   padding: 30px;
   text-align: left;
@@ -58,22 +52,14 @@ body {
  
  .border-item-line {
   padding-bottom: .2em;
-  border-bottom: 3px double #ccc;
+  border-bottom: 3px double #888084;
   color: #444;
   margin-top: 30px;
  }
  
- .border-green {
-  border: 1px solid #7b7c7d;
- }
- 
  .border-favorite-line {
-  border-bottom: 2px double #ccc;
+  border-bottom: 2px double #888084;
   margin-bottom: 15px;
- }
- 
- .favorite-gradation {
-  background: linear-gradient(90deg, rgba(145, 175, 175, 1), rgba(188, 146, 166, 1));
  }
  
  .inline-block {
@@ -81,6 +67,22 @@ body {
  }
  
  .border-order-line {
-  border-bottom: 2px double #ccc;
+  border-bottom: 2px double #888084;
   margin-top: 15px;
+ }
+ 
+ .thanks {
+  color: #769164;
+ }
+ 
+ .border2 {
+  border: 2px double #475950;
+ }
+ 
+ .box {
+  max-width: 100%;
+  width: 900px;
+  height: auto;
+  margin-left: 100px;
+  background-color: #fef4f4;
  }

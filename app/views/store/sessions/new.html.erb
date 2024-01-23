@@ -1,26 +1,28 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 offset-4">
+      <h4 class="text-center">店舗ログイン</h4>
+      <%= form_with model: @store, url: store_session_path do |f| %>
+        <div class="field">
+          <h5 class="mt-5">メールアドレス</h5>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "aaa@gmail.com", size: 40, class: "mb-3" %>
+        </div>
+        <div class="field">
+          <h5>パスワード</h5>
+          <%= f.password_field :password, autocomplete: "current-password", :placeholder => "パスワード(6文字以上)", size: 40, class: "mb-5" %>
+        </div>
+        <div class="action mb-4">
+          <%= f.submit "ログイン", class: "btn btn-primary btn-block" %>
+        </div>
+      <% end %>
+      <div class="border-line">
+        <hr class="hr1">
+      </div>
+      <div class="link mt-4 ml-4">
+        <span style="font-size:14px;">
+          アカウントをお持ちでない場合、登録は<%= link_to "こちら", new_store_registration_path %>から
+        </span>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "stores/shared/links" %>
+</div>

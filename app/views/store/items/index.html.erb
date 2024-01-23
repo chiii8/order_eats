@@ -13,7 +13,7 @@
     <% @items.each do |item| %>
       <div class="col-lg-2">
         <%= link_to store_store_item_path(@store, item) do %>
-          <%= image_tag item.get_image(150, 120), class: 'item-img' %>
+          <%= image_tag item.get_image(150, 120) %>
         <% end %>
       </div>
       <div class="col-lg-2">
