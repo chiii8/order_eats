@@ -1,38 +1,53 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-3 mb-5">
+    <div class="col text-center">
       <h3>注文履歴一覧</h3>
     </div>
   </div>
+  <div class="row mt-5">
+    <div class="col-lg-3 offset-2">
+      <h5>購入日時</h5>
+    </div>
+    <div class="col-lg-2">
+      <h5>購入者</h5>
+    </div>
+    <div class="col-lg-2">
+      <h5>注文個数</h5>
+    </div>
+  </div>
   <div class="row">
-    <div class="col-lg-8 offset-2">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>購入日時</th>
-            <th>購入者</th>
-            <th>注文個数</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @orders.each do |order| %>
-          <tr>
-            <td><%= order.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
-            <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
-            <td><%= order.order_details.sum(:quantity) %></td>
-            <td>
-              <%= link_to "表示する", admin_order_path(order.id), class: 'btn btn-secondary rounded-pill pr-4 pl-4' %>
-            </td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <div class="row", style="text-align: center;">
-        <div class="col-6 offset-5">
-          <%= paginate @orders %>
-        </div>
+    <div class="col-lg-9 offset-2">
+      <div class="border-line">
+        <hr class="hr1">
       </div>
+    </div>
+  </div>
+  <% @orders.each do |order| %>
+  <div class="row">
+    <div class="col-lg-3 offset-2">
+      <%= order.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+    </div>
+    <div class="col-lg-2">
+      <%= order.customer.last_name %><%= order.customer.first_name %>
+    </div>
+    <div class="col-lg-2">
+      <%= order.order_details.sum(:quantity) %>
+    </div>
+    <div class="col-lg-2">
+      <%= link_to "表示する", admin_order_path(order.id), class: 'btn btn-secondary rounded-pill btn-block' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-9 offset-2">
+      <div class="border-line">
+        <hr class="hr1">
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <div class="row", style="text-align: center;">
+    <div class="col-6 offset-5">
+      <%= paginate @orders %>
     </div>
   </div>
 </div>

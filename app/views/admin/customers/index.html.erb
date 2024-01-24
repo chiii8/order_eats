@@ -1,40 +1,62 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-2 offset-5 mb-5">
-      <h4><strong>会員一覧</strong></h4>
+    <div class="col text-center">
+      <h3>会員一覧</h3>
     </div>
-    <div class="offset-2 col-lg-8">
-      <table class="table table-hover">
-        <thead class="thead-light">
-          <tr>
-            <td>会員ID</td>
-            <td>氏名</td>
-            <td>メールアドレス</td>
-            <td>ステータス</td>
-          </tr>
-        </thead>
-        <tbody>
-          <% @customers.each do |customer| %>
-          <tr>
-            <td><%= customer.id %></td>
-            <td>
-              <%= link_to admin_customer_path(customer.id), class: 'text-dark' do %>
-                <%= customer.last_name %><%= customer.first_name %>
-              <% end %>
-            </td>
-            <td><%= customer.email %></td>
-            <td>
-              <% if customer.is_active == true %>
-                <p class="text-success"><strong><%= "有効" %></strong></p>
-              <% else %>
-                <p class="text-danger"><strong><%= "退会" %></strong></p>
-              <% end %>
-            </td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+  </div>
+  <div class="row mt-5">
+    <div class="col-lg-1 offset-3">
+      <h5>会員ID</h5>
+    </div>
+    <div class="col-lg-2">
+      <h5>氏名</h5>
+    </div>
+    <div class="col-lg-2">
+      <h5>メールアドレス</h5>
+    </div>
+    <div class="col-lg-2">
+      <h5>ステータス</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-7 offset-3">
+      <div class="border-line">
+        <hr class="hr1">
+      </div>
+    </div>
+  </div>
+  <% @customers.each do |customer| %>
+  <div class="row">
+    <div class="col-lg-1 offset-3">
+      <%= customer.id %>
+    </div>
+    <div class="col-lg-2">
+      <%= link_to admin_customer_path(customer.id), class: 'text-dark' do %>
+        <%= customer.last_name %><%= customer.first_name %>
+      <% end %>
+    </div>
+    <div class="col-lg-2">
+      <%= customer.email %>
+    </div>
+    <div class="col-lg-2">
+      <% if customer.is_active == true %>
+        <p class="text-success"><strong><%= "有効" %></strong></p>
+      <% else %>
+        <p class="text-danger"><strong><%= "退会" %></strong></p>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-7 offset-3">
+      <div class="border-line">
+        <hr class="hr1">
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <div class="row", style="text-align: center;">
+    <div class="col-6 offset-5">
+      <%= paginate @customers %>
     </div>
   </div>
 </div>
-<%= paginate @customers %>
