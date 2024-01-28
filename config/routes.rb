@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     resources :order_details, only: [:update]
     resources :customers, only: [:index, :show, :edit, :update]
     get "search" => "searches#search"
+    resources :categories, except: [:new, :show, :destroy]
   end
   # 管理者側
   namespace :admin do
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
     resources :customers, only: [:index, :show, :edit, :update]
     resources :orders, only: [:index, :show, :update]
     get "search" => "searches#search"
+    resources :categories, except: [:new, :show, :destroy]
   end
   # 顧客側
   scope module: :public do
@@ -59,5 +61,6 @@ Rails.application.routes.draw do
     resources :orders, except: [:edit, :update, :destroy]
     root to: 'homes#top'
     get "search" => "searches#search"
+    get '/categories/category' => 'categories#category'
   end
 end

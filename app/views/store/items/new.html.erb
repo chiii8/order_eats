@@ -3,8 +3,10 @@
     <div class="col-md-12 mb-3">
       <h4 class="text-center">商品新規登録</h4>
     </div>
+  </div>
+  <%= form_with model: @item, url: store_store_items_path do |f| %>
+  <div class="row">
     <div class="col-md-6 offset-4">
-    <%= form_with model: @item, url: store_store_items_path do |f| %>
       <div class="field mb-3">
         <h6>商品画像</h6>
         <%= f.file_field :image, accept: "image/*" %>

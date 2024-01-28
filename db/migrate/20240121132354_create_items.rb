@@ -7,6 +7,7 @@ class CreateItems < ActiveRecord::Migration[6.1]
       t.boolean :is_active, null: false, default: true
       t.references :store, foreign_key: true
       t.timestamps
+      t.integer :category_id
     end
   end
 end

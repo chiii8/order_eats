@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h3>カテゴリー追加・一覧</h3>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-lg-6">
+      <%= form_with model: @category, url: store_categories_path do |f| %>
+      <div class="row">
+        <div class="col-lg-3">
+          <h5>カテゴリー名</h5>
+        </div>
+        <div class="col-lg-5">
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+        <div class="col-lg-4">
+          <%= f.submit "新規登録", class: 'btn btn-success btn-block shadow-sm' %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <div class="col-lg-6">
+      <% @categories.each do |category| %>
+      <div class="row mb-3">
+        <div class="col-lg-6">
+          <h5><%= category.name %></h5>
+        </div>
+        <div class="col-lg-6">
+          <%= link_to "編集する", edit_store_category_path(category.id), class: 'btn btn-light rounded-pill btn-block shadow-sm' %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h3>カテゴリー編集</h3>
+    </div>
+  </div>
+  <%= form_with model: @category, url: store_category_path, method: :patch do |f| %>
+  <div class="row mt-5">
+    <div class="col-lg3">
+      <h5>カテゴリー名</h5>
+    </div>
+    <div class="col-lg-3">
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="col-lg-2">
+      <%= f.submit "変更を保存", class: 'btn btn-success btn-bloc shadow-sm' %>
+    </div>
+  </div>
+  <% end %>
+</div>

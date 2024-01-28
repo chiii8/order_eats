@@ -4,7 +4,7 @@ class Store::ItemsController < ApplicationController
 
   def index
     @store = current_store
-    @items = @store.items
+    @items = @store.items.page(params[:page]).per(12)
   end
 
   def new
