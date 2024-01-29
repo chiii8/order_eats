@@ -35,6 +35,7 @@ class DeviseCreateStores < ActiveRecord::Migration[6.1]
       t.text :introduction
       t.string :address, null: false
       t.string :telephone_number, null: false
+      t.integer :store_category_id
 
       t.timestamps null: false
     end

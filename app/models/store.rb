@@ -7,7 +7,7 @@ class Store < ApplicationRecord
   has_many :items, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_one_attached :image
-  belongs_to :category
+  belongs_to :store_category
    
   def get_image(width, height)
     unless image.attached?

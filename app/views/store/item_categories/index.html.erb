@@ -6,7 +6,7 @@
   </div>
   <div class="row mt-5">
     <div class="col-lg-6">
-      <%= form_with model: @category, url: store_categories_path do |f| %>
+      <%= form_with model: @item_category, url: store_item_categories_path do |f| %>
       <div class="row">
         <div class="col-lg-3">
           <h5>カテゴリー名</h5>
@@ -20,14 +20,19 @@
       </div>
       <% end %>
     </div>
-    <div class="col-lg-6">
-      <% @categories.each do |category| %>
-      <div class="row mb-3">
-        <div class="col-lg-6">
+    <div class="col-lg-5 offset-1">
+      <% @item_categories.each do |category| %>
+      <div class="row">
+        <div class="col-lg-4">
           <h5><%= category.name %></h5>
         </div>
-        <div class="col-lg-6">
-          <%= link_to "編集する", edit_store_category_path(category.id), class: 'btn btn-light rounded-pill btn-block shadow-sm' %>
+        <div class="col-lg-4">
+          <%= link_to "編集する", edit_store_item_category_path(category.id), class: 'btn btn-light rounded-pill btn-block shadow-sm' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-9">
+          <hr class="hr1">
         </div>
       </div>
       <% end %>

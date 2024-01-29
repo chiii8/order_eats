@@ -43,7 +43,7 @@
         <h5>カテゴリー</h5>
       </div>
       <div class="col-lg-3">
-        <%= f.collection_select :category_id, Category.all, :id, :name, :include_blank => "--選択してください--" %>
+        <%= f.collection_select :store_category_id, StoreCategory.all, :id, :name, :include_blank => "--選択してください--" %>
       </div>
     </div>
     <div class="row mt-3">
@@ -72,6 +72,15 @@
     <div class="row mt-3">
       <div class="col-lg-4 offset-4">
         <%= f.submit "新規登録", class: 'btn btn-success btn-block' %>
+      </div>
+    </div>
+    <div class="row mb-5">
+      <div class="offset-4">
+        <div class="link mt-4 ml-4">
+        <span style="font-size:14px;">
+          アカウントをお持ちでない場合、登録は<%= link_to "こちら", new_store_session_path %>から
+        </span>
+      </div>
       </div>
     </div>
   <% end %>
