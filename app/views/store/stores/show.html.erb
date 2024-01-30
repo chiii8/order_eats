@@ -12,6 +12,8 @@
       <h5><%= @store.email %></h5>
       <h5 class="text-secondary mt-3">電話番号</h5>
       <h5><%= @store.telephone_number %></h5>
+      <h5 class="text-secondary mt-3">カテゴリー</h5>
+      <h5><%= @store.store_category.name %></h5>
     </div>
     <div class="col-lg-4">
       <%= image_tag @store.get_image(300, 300) %>

@@ -16,6 +16,10 @@
         <%= f.text_field :name, :placeholder => "商品名", size: 40 %>
       </div>
       <div class="field mb-3">
+        <h6>カテゴリー</h6>
+        <%= f.collection_select :item_category_id, ItemCategory.all, :id, :name, :include_blank => "--選択してください--" %>
+      </div>
+      <div class="field mb-3">
         <h6>商品説明</h6>
         <%= f.text_area :introduction, :placeholder => "ここに説明文を記述します", size: "40×60" %>
       </div>

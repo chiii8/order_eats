@@ -1,0 +1,9 @@
+<div class="category-header">
+  <nav>
+    <ul>
+      <% ItemCategory.all.each do |item_category| %>
+        <li><%= link_to item_category.name, item_category_path(item_category) %></li>
+      <% end %>
+    </ul>
+  </nav>
+</div>

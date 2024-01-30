@@ -15,6 +15,14 @@
   </div>
   <div class="row mt-3">
     <div class="col-lg-2 offset-3">
+      <h5>カテゴリー</h5>
+    </div>
+    <div class="col-lg-3">
+      <%= f.collection_select :store_category_id, StoreCategory.all, :id, :name, :include_blank => "--選択してください--" %>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-lg-2 offset-3">
       <h5>店舗写真</h5>
     </div>
     <div class="col-lg-3">

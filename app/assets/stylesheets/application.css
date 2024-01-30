@@ -105,3 +105,9 @@
 .pagination {
   justify-content: center;
 }
+
+.category-header {
+ width: 100%;
+ height: 50px;
+ background-color: #ede4e1;
+}
