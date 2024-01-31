@@ -1,5 +1,6 @@
 class Store::ItemCategoriesController < ApplicationController
   before_action :authenticate_store!
+  before_action :set_search
   
   def index
     @item_category = ItemCategory.new
@@ -32,5 +33,10 @@ class Store::ItemCategoriesController < ApplicationController
   
   def item_category_params
     params.require(:item_category).permit(:name)
+  end
+  
+  def set_search
+    @q = ItemCategory.ransack(params[:q])
+    @item_categories = @q.result(distinct: true)
   end
 end

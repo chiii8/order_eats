@@ -2,7 +2,7 @@
   <nav>
     <ul>
       <% ItemCategory.all.each do |item_category| %>
-        <li><%= link_to item_category.name, item_category_path(item_category) %></li>
+        <li><%= link_to item_category.name, store_store_items_path(item_category_id: item_category.id) %></li>
       <% end %>
     </ul>
   </nav>

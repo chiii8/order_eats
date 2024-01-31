@@ -4,6 +4,9 @@
       <%= render 'item_header' %>
     </div>
   </div>
+  <% if params[:item_category_id].present? %>
+    <h2><%= "カテゴリー: #{ItemCategory.find(params[:item_category_id]).name}" %></h2>
+  <% end %>
   <div class="row mt-4">
     <div class="col mb-5">
       <h4><strong><%= @store.name %></strong> 商品一覧</h4>

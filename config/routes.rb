@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resources :customers, only: [:index, :show, :edit, :update]
     get "search" => "searches#search"
     resources :item_categories, except: [:new, :show, :destroy]
+    get 'item_categories/search'
   end
   # 管理者側
   namespace :admin do
