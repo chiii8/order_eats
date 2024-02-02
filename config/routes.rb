@@ -39,8 +39,11 @@ Rails.application.routes.draw do
   # 顧客側
   scope module: :public do
     resources :stores, only: [:index] do
+      resources :store_categories, only: [:index, :show]
       resource :favorite, only: [:create, :destroy]
-      resources :items, only: [:index, :show]
+      resources :items, only: [:index, :show] do
+        resources :item_categories, only: [:index, :show]
+      end
     end
     resources :customers, only: [:update] do
       member do
@@ -62,7 +65,5 @@ Rails.application.routes.draw do
     resources :orders, except: [:edit, :update, :destroy]
     root to: 'homes#top'
     get "search" => "searches#search"
-    get '/item_categories/category/:id' => 'item_categories#category/:id'
-    get '/store_categories/category/:id' => 'store_categories#category/:id'
   end
 end

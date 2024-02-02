@@ -3,8 +3,15 @@ class Store::ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update]
 
   def index
-    @store = current_store
-    @items = @store.items.page(params[:page]).per(12)
+    # カテゴリーがクリックされたとき、
+    if params[:item_category_id].present?
+      @item_category = ItemCategory.find(params[:item_category_id])
+      @store = current_store
+      @items = @item_category.items.page(params[:page]).per(12)
+    else
+      @store = current_store
+      @items = @store.items.page(params[:page]).per(12)
+    end
   end
 
   def new
