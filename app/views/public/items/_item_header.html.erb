@@ -1,9 +1,8 @@
 <div class="category-header">
   <nav>
     <ul style="list-style: none;">
-      <li><h5><%= link_to "全商品", store_items_path, class: 'text-dark' %></h5></li>
       <% ItemCategory.all.each do |item_category| %>
-        <li><h5><%= link_to @store.item_category.name, store_item_item_category_path(item_category_id: item_category.id), class: 'text-dark' %></h5></li>
+        <li><h5><%= link_to item_category.name, store_item_item_category_path(item_category_id: item_category.id), class: 'text-dark' %></h5></li>
       <% end %>
     </ul>
   </nav>

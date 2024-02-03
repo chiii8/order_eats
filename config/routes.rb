@@ -42,7 +42,7 @@ Rails.application.routes.draw do
       resources :store_categories, only: [:index, :show]
       resource :favorite, only: [:create, :destroy]
       resources :items, only: [:index, :show] do
-        resources :item_categories, only: [:index, :show]
+        resources :item_categories, only: [:show]
       end
     end
     resources :customers, only: [:update] do

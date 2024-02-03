@@ -2,6 +2,7 @@ class Public::StoresController < ApplicationController
   before_action :authenticate_customer!, except: [:index]
 
   def index
+    @store_categories = StoreCategory.all
     if params[:store_category_id].present?
       @store_category = StoreCategory.find(params[:store_category_id])
       @stores = @store_category.stores.page(params[:page])
