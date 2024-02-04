@@ -5,9 +5,9 @@ class Public::StoresController < ApplicationController
     @store_categories = StoreCategory.all
     if params[:store_category_id].present?
       @store_category = StoreCategory.find(params[:store_category_id])
-      @stores = @store_category.stores.page(params[:page])
+      @stores = @store_category.stores.all
     else
-      @stores = Store.page(params[:page])
+      @stores = Store.all
     end
   end
 
