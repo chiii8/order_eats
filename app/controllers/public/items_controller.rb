@@ -3,7 +3,7 @@ class Public::ItemsController < ApplicationController
   before_action :set_customer
   
   def index
-    @item_categories = ItemCategory.all
+    @item_categories = ItemCategory.where(store_id: @store).page(params[:page])
     if params[:item_category_id].present?
       @item_category = ItemCategory.find(params[:item_category_id])
       @items = @item_category.items.where(is_active: 1).page(params[:page]).per(12)

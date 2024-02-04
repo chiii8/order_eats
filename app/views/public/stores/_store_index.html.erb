@@ -1,10 +1,10 @@
 <div class="body">
   <div class="box">
     <% stores.each do |store| %>
-    <div class="row">
+    <div class="row mt-2">
       <div class="col-lg-3 offset-2">
         <%= link_to store_items_path(store) do %>
-          <%= image_tag store.get_image(200, 200), class: 'rounded store-img' %>
+          <%= image_tag store.get_image(300, 200), class: 'store-img' %>
         <% end %>
       </div>
       <div class="col-lg-5 mt-5">

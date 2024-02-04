@@ -1,22 +1,20 @@
 class Store::ItemsController < ApplicationController
   before_action :authenticate_store!
   before_action :set_item, only: [:show, :edit, :update]
+  before_action :set_store
 
   def index
     # カテゴリーがクリックされたとき、
     if params[:item_category_id].present?
       @item_category = ItemCategory.find(params[:item_category_id])
-      @store = current_store
       @items = @item_category.items.page(params[:page]).per(12)
     else
-      @store = current_store
       @items = @store.items.page(params[:page]).per(12)
     end
   end
 
   def new
     @item = Item.new
-    @store = current_store
   end
 
   def create
@@ -31,11 +29,9 @@ class Store::ItemsController < ApplicationController
   end
 
   def show
-    @store = current_store
   end
 
   def edit
-    @store = current_store
   end
 
   def update
@@ -55,5 +51,9 @@ class Store::ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_store
+    @store = current_store
   end
 end
