@@ -1,12 +1,5 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :search
-  
-  def search
-    @q = Store.ransack(params[:q])
-    @store = @q.result(distinct: true).page(params[:page])
-    @result = params[:q]&.values&.reject(&:blank?)
-  end
 
   protected
 
