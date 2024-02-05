@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="text-center col-lg-3">
+    <div class="text-center col-md-3">
       <h4>お気に入り店舗</h4>
     </div>
   </div>
@@ -9,16 +9,16 @@
   <% else %>
   <% @favorite_stores.each do |store| %>
   <div class="row">
-    <div class="col-lg-3 offset-3">
+    <div class="col-md-3 offset-md-3">
       <h5><%= store.name %></h5>
       <p class="text-secondary"><%= store.address %></p>
     </div>
-    <div class="col-lg-2">
+    <div class="col-md-2">
       <%= link_to store_items_path(store) do %>
-        <button class="btn btn-secondary rounded-pill mt-3"><i class="fa-solid fa-eye"></i> 商品を見る</button>
+        <button class="btn btn-secondary rounded-pill mt-md-3"><i class="fa-solid fa-eye"></i> 商品を見る</button>
       <% end %>
     </div>
-    <div class="col-lg-5 offset-3 border-favorite-line"></div>
+    <div class="col-md-5 offset-md-3 border-favorite-line mt-2"></div>
   </div>
   <% end %>
   <% end %>

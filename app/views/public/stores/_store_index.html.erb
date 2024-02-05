@@ -2,12 +2,12 @@
   <div class="box">
     <% stores.each do |store| %>
     <div class="row mt-2">
-      <div class="col-lg-3 offset-2">
+      <div class="col-lg-3 col-5 col-lg-offset-2">
         <%= link_to store_items_path(store) do %>
           <%= image_tag store.get_image(300, 200), class: 'store-img' %>
         <% end %>
       </div>
-      <div class="col-lg-5 mt-5">
+      <div class="col-lg-5 col-7 col-lg-mt-5">
         <h4><strong><%= store.name %></strong></h4>
         <h5><%= store.address %>
         <% if customer_signed_in? %>
