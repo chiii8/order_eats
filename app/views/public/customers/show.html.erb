@@ -1,7 +1,7 @@
-<div class="container mt-md-2">
+<div class="container">
   <div class="row">
-    <div class="col-md-3 offset-3">
-      <h3><strong>マイページ</strong></h3>
+    <div class="col-md-3">
+      <h3>マイページ</h3>
       <div class="rounded-circle">
         <%= image_tag @customer.get_profile_image(150, 150), class: 'mt-md-5 mb-0' %>
       </div>
@@ -9,32 +9,24 @@
     <div class="col-md-8">
       <h3 class="mb-md-5"><strong><%= @customer.full_name %></strong></h3>
       <div class="row">
-        <div class="col-md-3 col-6">
-          <div class="fa-stack fa-4x">
-            <%= link_to favorites_customer_path(@customer), class: 'text-secondary' do %>
-              <i class="fa-solid fa-circle fa-stack-2x"></i>
-              <i class="fa-solid fa-heart-circle-check fa-stack-1x fa-inverse"></i>
-            <% end %>
-          </div>
-          <h6 class="text-center mt-md-3"><strong>お気に入り</strong></h6>
+        <div class="col-md-6">
+          <%= link_to favorites_customer_path(@customer), class: 'text-secondary' do %>
+            <h4>お気に入り</h4>
+          <% end %>
         </div>
-        <div class="col-md-3 col-6">
-          <div class="fa-stack fa-4x">
-            <%= link_to confirmation_path(@customer), class: 'text-secondary' do %>
-              <i class="fa-solid fa-circle fa-stack-2x"></i>
-              <i class="fa-solid fa-user fa-stack-1x fa-inverse"></i>
-            <% end %>
-          </div>
-          <h6 class="text-center mt-md-3"><strong>個人情報</strong></h6>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mt-md-3">
+          <%= link_to confirmation_path(@customer), class: 'text-secondary' do %>
+             <h4>個人情報</h4>
+          <% end %>
         </div>
-        <div class="col-md-3 col-6">
-          <div class="fa-stack fa-4x">
-            <%= link_to orders_path(@customer), class: 'text-secondary' do %>
-              <i class="fa-solid fa-circle fa-stack-2x"></i>
-              <i class="fa-solid fa-file-lines fa-stack-1x fa-inverse"></i>
-            <% end %>
-          </div>
-          <h6 class="text-center mt-md-3"><strong>注文一覧</strong></h6>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mt-md-3">
+          <%= link_to orders_path(@customer), class: 'text-secondary' do %>
+             <h4>注文一覧</h4>
+          <% end %>
         </div>
       </div>
     </div>
