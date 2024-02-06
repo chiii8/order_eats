@@ -1,32 +1,67 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
-      <h3>マイページ</h3>
-      <div class="rounded-circle">
-        <%= image_tag @customer.get_profile_image(150, 150), class: 'mt-md-5 mb-0' %>
+    <div class="col-md-4 col-sm-12">
+      <h3>アカウント情報</h3>
+      <div class="row mt-md-5 mt-sm-3">
+        <div class="col-md-1 col-sm-1 col-1">
+          <i class="fa-solid fa-heart"></i>
+        </div>
+        <div class="col-md-10 col-sm-3 col-10">
+          <%= link_to favorites_customer_path(@customer), class: 'text-dark' do %>
+            <h5>お気に入り</h5>
+          <% end %>
+        </div>
+      </div>
+      <div class="row mt-md-2">
+        <div class="col-md-1 col-sm-1 col-1">
+          <i class="fa-solid fa-receipt"></i>
+        </div>
+        <div class="col-md-10 col-sm-3 col-10">
+          <%= link_to orders_path(@customer), class: 'text-dark' do %>
+            <h5>注文一覧</h5>
+          <% end %>
+        </div>
       </div>
     </div>
-    <div class="col-md-8">
-      <h3 class="mb-md-5"><strong><%= @customer.full_name %></strong></h3>
+    <div class="col-md-8 col-sm-12">
+      <h3 class="mb-md-5 mt-sm-3 mt-3"><strong>基本情報</strong></h3>
       <div class="row">
-        <div class="col-md-6">
-          <%= link_to favorites_customer_path(@customer), class: 'text-secondary' do %>
-            <h4>お気に入り</h4>
-          <% end %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 mt-md-3">
-          <%= link_to confirmation_path(@customer), class: 'text-secondary' do %>
-             <h4>個人情報</h4>
-          <% end %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 mt-md-3">
-          <%= link_to orders_path(@customer), class: 'text-secondary' do %>
-             <h4>注文一覧</h4>
-          <% end %>
+        <div class="col-md-6 col-sm-10 col-10">
+          <div class="row">
+            <div class="col-md-12 border-bottom">
+              <h6>氏名</h6>
+              <h6><%= @customer.full_name %></h6>
+            </div>
+          </div>
+          <div class="row mt-md-2 mt-sm-2 mt-2">
+            <div class="col-md-12 border-bottom">
+              <h6>フリガナ</h6>
+              <h6><%= @customer.full_name_kana %></h6>
+            </div>
+          </div>
+          <div class="row mt-md-2 mt-sm-2 mt-2">
+            <div class="col-md-12 border-bottom">
+              <h6>性別</h6>
+              <h6><%= @customer.gender_i18n %></h6>
+            </div>
+          </div>
+          <div class="row mt-md-2 mt-sm-2 mt-2">
+            <div class="col-md-12 border-bottom">
+              <h6>電話番号</h6>
+              <h6><%= @customer.telephone_number %></h6>
+            </div>
+          </div>
+          <div class="row mt-md-2 mt-sm-2 mt-2">
+            <div class="col-md-12 border-bottom">
+              <h6>メールアドレス</h6>
+              <h6><%= @customer.email %></h6>
+            </div>
+          </div>
+          <div class="row mt-md-4 mb-md-5 mt-sm-4 mb-sm-5 mt-4 mb-5">
+            <div class="col-md-12">
+              <%= link_to "基本情報を編集", infomation_path(@customer), class: 'btn btn-dark btn-block btn-sm' %>
+            </div>
+          </div>
         </div>
       </div>
     </div>

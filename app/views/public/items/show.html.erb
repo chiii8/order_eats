@@ -1,31 +1,43 @@
-<div class="container">
+<div class="container mt-5">
   <div class="row">
-    <div class="col-lg-2">
+    <div class="col-md-2">
       <%= link_to store_items_path(@store), class: 'text-dark' do %>
         <i class="fa-solid fa-angles-left"></i>戻る
       <% end %>
     </div>
-  </div>
-  <div class="row offset-lg-3">
-    <div class="col-lg-4 col-12 offset-2 offset-md-3">
-      <%= image_tag @item.get_image(300, 300) %>
-    </div>
-    <div class="col-lg-6 col-12 ml-md-5 mt-4 mt-md-0">
-      <h4><strong><%= @item.name %></strong></h4>
-      <p><%= @item.introduction %></p>
-      <h4>
-        ¥ <%= @item.with_tax_price %>
-        <span style="font-size: 10px;">(税込)</span>
-      </h4>
+    <div class="col-md-10">
       <div class="row">
-        <div class="form-group mt-4 col-12">
-          <%= form_with model: @cart_item, url: cart_items_path do |f| %>
-            <div class="d-flex flex-column flex-md-row align-items-md-center">
-              <%= f.hidden_field :item_id, value: @item.id %>
-              <%= f.select :quantity, (1..10), class: 'mb-2 mb-md-0 mr-md-2 col-md-auto' %>
-              <%= f.submit "カートに入れる", class: 'btn btn-success col-md-auto col-12' %>
+        <div class="col-md-3">
+          <%= image_tag @item.get_image(300, 300) %>
+        </div>
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col-md-3">
+              <h4><strong><%= @item.name %></strong></h4>
             </div>
-          <% end %>
+            <div class="col-md-3">
+              <h4>
+                ¥ <%= @item.with_tax_price %>
+                <span style="font-size: 10px;">(税込)</span>
+              </h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <p><%= @item.introduction %></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              <%= form_with model: @cart_item, url: cart_items_path do |f| %>
+                <%= f.hidden_field :item_id, value: @item.id %>
+                <%= f.select :quantity, (1..10) %>
+            </div>
+            <div class="col-md-5">
+              <%= f.submit "カートに入れる", class: 'btn btn-success col-md-auto col-12' %>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     </div>

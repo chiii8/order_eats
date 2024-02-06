@@ -5,86 +5,76 @@
 <% else %>
 <div class="container">
   <div class="row">
-    <div class="col text-center mt-md-4">
-      <h4>会員情報編集</h4>
-    </div>
-  </div>
-  <%= form_with model: @customer, method: :patch do |f| %>
-  <div class="row mt-3">
-    <div class="col-lg-3 offset-lg-3">
-      <h5>名前</h5>
-    </div>
-    <div class="col-lg-5">
-      <div class="row">
-        <div class="col-6">
-          <%= f.text_field :last_name, class: 'form-control', placeholder: "姓" %>
-        </div>
-        <div class="col-6">
-          <%= f.text_field :first_name, class: 'form-control', placeholder: "名" %>
+    <div class="col-md-12 col-sm-12">
+      <h3>基本情報編集</h3>
+      <div class="row mt-md-5">
+        <div class="col-md-12 col-sm-12 col">
+          <%= link_to withdraw_confirm_path, class: 'text-danger' do %>
+            <p><i class="fa-solid fa-circle-exclamation"></i>退会する方はこちら</p>
+          <% end %>
         </div>
       </div>
     </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-lg-3 offset-lg-3">
-      <h5>フリガナ</h5>
-    </div>
-    <div class="col-lg-5">
-      <div class="row">
-        <div class="col-6">
-        <%= f.text_field :last_name_kana, class: 'form-control', placeholder: "セイ" %>
+      <div class="col-md-12 mt-md-3 col-sm-12 col-12">
+        <%= form_with model: @customer, method: :patch do |f| %>
+        <div class="row">
+          <div class="col-md-3 mt-md-2 col-sm-3 mt-sm-2 col-4 mt-2">
+            <h6>氏名</h6>
+          </div>
+          <div class="col-md-3 col-sm-4 col-4">
+            <%= f.text_field :last_name, class: 'form-control', placeholder: "姓" %>
+          </div>
+          <div class="col-md-3 col-sm-4 col-4">
+            <%= f.text_field :first_name, class: 'form-control', placeholder: "名" %>
+          </div>
         </div>
-        <div class="col-6">
-          <%= f.text_field :first_name_kana, class: 'form-control', placeholder: "メイ" %>
+        <div class="row mt-md-2 mt-sm-2 mt-2">
+          <div class="col-md-3 mt-md-2 col-sm-3 mt-sm-2 col-4 mt-2">
+            <h6>フリガナ</h6>
+          </div>
+          <div class="col-md-3 col-sm-4 col-4">
+            <%= f.text_field :last_name_kana, class: 'form-control', placeholder: "姓" %>
+          </div>
+          <div class="col-md-3 col-sm-4 col-4">
+            <%= f.text_field :first_name_kana, class: 'form-control', placeholder: "名" %>
+          </div>
         </div>
+        <div class="row mt-md-2 mt-sm-2 mt-2">
+          <div class="col-md-3 mt-md-2 col-sm-3 col-4 mt-2">
+            <h6>性別</h6>
+          </div>
+          <div class="col-md-6 mt-md-2 ml-md-1 col-sm-8 col-8">
+            <%= f.radio_button :gender, Customer.genders.key(0) %>
+            <%= f.label :gender_male, Customer.genders_i18n[:male], class: 'mr-3' %>
+            <%= f.radio_button :gender, Customer.genders.key(1) %>
+            <%= f.label :gender_female, Customer.genders_i18n[:female], class: 'mr-3' %>
+            <%= f.radio_button :gender, Customer.genders.key(2) %>
+            <%= f.label :gender_no_answer, Customer.genders_i18n[:no_answer] %>
+          </div>
+        </div>
+        <div class="row mt-md-2 mt-2">
+          <div class="col-md-3 mt-md-2 col-sm-4 col-4 mt-2">
+            <h6>電話番号</h6>
+          </div>
+          <div class="col-md-6 col-sm-8 col-8">
+            <%= f.text_field :telephone_number, class: 'form-control', :placeholder => "00000000000" %>
+          </div>
+        </div>
+        <div class="row mt-md-2 mt-sm-2 mt-2">
+          <div class="col-md-3 mt-md-2 col-sm-3 col-4 mt-2">
+            <h6>メールアドレス</h6>
+          </div>
+          <div class="col-md-6 col-sm-8 col-8">
+            <%= f.email_field :email, class: 'form-control', autofocus: true, autocomplete: "email", :placeholder => "aaa@gmail.com" %>
+          </div>
+        </div>
+        <div class="row mt-md-5 mt-sm-5 mt-5">
+          <div class="col-md-9 col-sm-11">
+            <%= f.submit "変更", class: 'btn btn-dark btn-block' %>
+          </div>
+        </div>
+        <% end %>
       </div>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-lg-3 offset-lg-3">
-      <h5>電話番号</h5>
-    </div>
-    <div class="col-lg-5">
-      <%= f.text_field :telephone_number, class: 'form-control', size: 30, :placeholder => "00000000000" %>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-lg-3 offset-lg-3">
-      <h5>メールアドレス</h5>
-    </div>
-    <div class="col-lg-5">
-      <%= f.email_field :email, class: 'form-control', autofocus: true, autocomplete: "email", size: 30, :placeholder => "aaa@gmail.com" %>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-lg-3 offset-lg-3">
-      <h5>性別</h5>
-    </div>
-    <div class="col-lg-5">
-      <%= f.radio_button :gender, Customer.genders.key(0) %>
-      <%= f.label :gender_male, Customer.genders_i18n[:male], class: 'mr-3' %>
-      <%= f.radio_button :gender, Customer.genders.key(1) %>
-      <%= f.label :gender_female, Customer.genders_i18n[:female], class: 'mr-3' %>
-      <%= f.radio_button :gender, Customer.genders.key(2) %>
-      <%= f.label :gender_no_answer, Customer.genders_i18n[:no_answer] %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4 offset-md-4 mt-md-3 col-12">
-      <div class="action">
-        <%= f.submit "編集する", class: 'btn btn-success btn-block mt-3' %>
-      </div>
-    </div>
-  </div>
-  <% end %>
-  <div class="row">
-    <div class="col-md-6 offset-md-3 mt-md-3 mb-md-5 mt-3">
-      <div class="link mt-md-4 text-center">
-        <span style="font-size:15px;">
-          アカウントを削除する方は、<%= link_to "こちら", withdraw_confirm_path, class: 'text-danger' %>から
-        </span>
-      </div>
-    </div>
   </div>
 </div>
 <% end %>

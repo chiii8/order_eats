@@ -1,13 +1,7 @@
 class Public::CustomersController < ApplicationController
-  before_action :set_customer, only: [:show, :maypage, :confirmation, :favorites, :edit, :update, :withdraw]
+  before_action :set_customer, only: [:show, :favorites, :edit, :update, :withdraw]
   
   def show
-  end
-  
-  def mypage
-  end
-  
-  def confirmation
   end
   
   def favorites
@@ -19,11 +13,12 @@ class Public::CustomersController < ApplicationController
   end
   
   def update
-    if params[:id] == "withdraw" # idがwithdrawか否か判別する
+    # idがwithdrawか否か判別する
+    if params[:id] == "withdraw"
       withdraw
     elsif @customer.update(customer_params)
-      flash[:notice] = "会員情報を更新しました。"
-      redirect_to confirmation_path(current_customer)
+      flash[:notice] = "基本情報を更新しました。"
+      redirect_to mypage_path(current_customer)
     else
       render :edit
     end

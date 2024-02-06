@@ -10,7 +10,7 @@
       <p>退会する場合は、「退会する」をクリックしてください。</p><br>
 
       <div class="d-flex justify-content offset-3">
-        <%= link_to "退会しない", confirmation_path, class: "btn btn-outline-primary mr-md-3 pl-md-4 pr-md-4 rounded-pill" %>
+        <%= link_to "退会しない", mypage_path, class: "btn btn-outline-primary mr-md-3 pl-md-4 pr-md-4 rounded-pill" %>
         <%= link_to "退会する", customers_withdraw_path, method: :patch, "data-confirm" => "本当に削除しますか？", class: "btn btn-outline-danger pl-md-4 pr-md-4 ml-2 rounded-pill" %>
       </div>
     </div>
