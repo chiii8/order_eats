@@ -4,7 +4,7 @@ class CreateOrderDetails < ActiveRecord::Migration[6.1]
       t.integer :item_id, null: false
       t.integer :order_id, null: false
       t.integer :quantity, null: false
-      t.string :number, null: false
+      t.integer :number, null: false
       t.integer :payment_amount, null: false
       t.boolean :making_status, null: false, default: 0
       t.timestamps

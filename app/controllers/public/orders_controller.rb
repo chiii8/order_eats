@@ -23,7 +23,7 @@ class Public::OrdersController < ApplicationController
     if number.nil?
       @order.number = 1
     else
-      @order.number = "#{number.to_s}" + 1
+      @order.number = number.to_i + 1
     end
     @order.save
     #注文詳細を作成
