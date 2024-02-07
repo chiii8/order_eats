@@ -3,7 +3,7 @@
     <div class="col-md-4 offset-4">
       <h4 class="text-center mb-5">管理者ログイン</h4>
       <%= form_with model: @admin, url: admin_session_path do |f| %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", size: 39, :placeholder => "ordereats@gmail.com", class: 'mb-5' %><br>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", size: 39, :placeholder => "order_eats@example.com", class: 'mb-5' %><br>
         <%= f.password_field :password, autocomplete: "current-password", size: 39, :placeholder => "パスワード", class: 'mb-5' %>
         <div class="border-line">
           <hr class="hr">
