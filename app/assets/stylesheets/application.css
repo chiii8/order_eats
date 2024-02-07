@@ -33,7 +33,7 @@
  
  .store-img {
   width: 100%;
-  height: auto;
+  height: 150px;
  }
  
  .empty-infomaion {
@@ -79,7 +79,7 @@
  }
  
  .item-img {
-  width: 150px;
+  width: 120px;
   height: auto;
  }
  
@@ -120,6 +120,10 @@
 .category-header li {
   display: inline-block;
   padding: 13px 20px 0 20px;
+ }
+ 
+ .card-body {
+  border: double 2px black;
  }
  
  @media screen and (max-width: 425px) {

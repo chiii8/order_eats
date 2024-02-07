@@ -6,39 +6,37 @@
       <% end %>
     </div>
     <div class="col-md-10">
-      <div class="row">
-        <div class="col-md-3">
-          <%= image_tag @item.get_image(300, 300) %>
-        </div>
-        <div class="col-md-9">
-          <div class="row">
-            <div class="col-md-3">
-              <h4><strong><%= @item.name %></strong></h4>
-            </div>
-            <div class="col-md-3">
-              <h4>
-                ¥ <%= @item.with_tax_price %>
-                <span style="font-size: 10px;">(税込)</span>
-              </h4>
-            </div>
+      <div class="col-md-12">
+        <%= image_tag @item.get_image(300, 200) %>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-6">
+            <h4><%= @item.name %></h4>
           </div>
-          <div class="row">
-            <div class="col-md-6">
-              <p><%= @item.introduction %></p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-2">
-              <%= form_with model: @cart_item, url: cart_items_path do |f| %>
-                <%= f.hidden_field :item_id, value: @item.id %>
-                <%= f.select :quantity, (1..10) %>
-            </div>
-            <div class="col-md-5">
-              <%= f.submit "カートに入れる", class: 'btn btn-success col-md-auto col-12' %>
-              <% end %>
-            </div>
+          <div class="col-md-4">
+            <h4>
+              ¥ <%= @item.with_tax_price %>
+              <span style="font-size: 10px;">(税込)</span>
+            </h4>
           </div>
         </div>
+        <div class="row">
+          <div class="col-md-6">
+            <p><%= @item.introduction %></p>
+          </div>
+        </div>
+        <%= form_with model: @cart_item, url: cart_items_path do |f| %>
+        <div class="row mt-3">
+          <div class="col-md-2">
+            <%= f.hidden_field :item_id, value: @item.id %>
+            <%= f.select :quantity, (1..10) %>
+          </div>
+          <div class="col-md-5">
+            <%= f.submit "カートに入れる", class: 'btn btn-success btn-sm col-12' %>
+          </div>
+        </div>
+        <% end %>
       </div>
     </div>
   </div>

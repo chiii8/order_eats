@@ -13,36 +13,30 @@
     </div>
   </div>
   <div class="row mt-2">
-    <div class="col text-center">
-      <h4><strong><%= @store.name %></strong></h4>
+    <div class="col-md-12 text-center">
+      <h4><%= @store.name %></h4>
     </div>
   </div>
-  <div class="row mb-5">
+  <div class="row">
     <div class="col-lg-12">
       <% if params[:item_category_id].present? %>
         <h2><%= "#{ItemCategory.find(params[:item_category_id]).name}" %></h2>
       <% end %>
     </div>
     <% @items.each do |item| %>
-      <div class="col-lg-2 col-md-3 d-none d-md-block">
-        <%= link_to store_item_path(@store, item) do %>
-          <%= image_tag item.get_image(150, 120), class: 'item-img'  %>
-        <% end %>
-      </div>
-      <div class="col-lg-2 col-md-3 col-6">
-        <%= link_to store_item_path(@store, item) do %>
-          <p class="text-dark"><strong>・<%= item.name %></strong></p>
-        <% end %>
-        <p><%= item.introduction %></p>
-        <p>¥<%= item.price %></p>
-        <p class="d-none d-md-block">
-          <% if item.is_active %>
-            <span class="text-success"><strong>販売中</strong></span>
-          <% else %>
-            <span class="text-danger"><strong>販売停止中</strong></span>
+    <div class="col-md-4">
+      <div class="row mt-md-2">
+        <div class="col-md-6">
+          <%= link_to store_item_path(@store, item) do %>
+            <p class="text-dark"><strong>-<%= item.name %></strong></p>
           <% end %>
-        </p>
+        </div>
+        <div class="col-md-2">
+          <p>¥<%= item.price %></p>
+        </div>
+        <div class="col-md-10 border-bottom"></div>
       </div>
+    </div>
     <% end %>
   </div>
 </div>
